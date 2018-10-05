@@ -39,10 +39,10 @@ public class Ejercicio02 {
 			}
 		}
 		if(bisiesto) {
-			bisiestoF = "Correcto";
+			bisiestoF = "Correcta";
 		}
 		else {
-			bisiestoF = "Incorrecto";
+			bisiestoF = "Incorrecta";
 		}
 		if(salida) {
 			salidaF = "Correcto";
