@@ -213,9 +213,219 @@ public class EjerciciosIfT {
 			dia9++;
 		}
 		System.out.println(dia9 + "/" + mes9 + "/" + anyo9);
+		
+		
+		// 10. Pedir el día, mes y año y mostrar la fecha del día siguiente. Con meses de 28, 30 y 31 días. Sin años bisiestos.
+		System.out.println("Intruduzca dia, mes y año (separado por espacios)");
+		int dia10 = sc.nextInt();
+		int mes10 = sc.nextInt();
+		int anyo10 = sc.nextInt();
+		
+		if(dia10 <= 31 && dia10 > 0) {
+			if(dia10 >= 28 && mes10 == 2) {
+				if(dia10 >= 29) {
+					System.out.println("Error, no existe dia 29 en el mes 2");
+				}
+				else {
+					mes10++;
+					dia10 = 1;
+				}
+			}
+			else if((mes10 == 4 || mes10 == 6 || mes10 == 9 || mes10 == 11) && dia10 == 30) {
+				mes10++;
+				dia10 = 1;
+			}
+			else if((mes10 == 1 || mes10 == 3 || mes10 == 5 || mes10 == 7 || mes10 == 8 || mes10 == 10) && dia10 == 31){
+				mes10++;
+				dia10 = 1;
+			}
+			else if (mes10 == 12 && dia10 == 31) {
+				dia10 = 1;
+				mes10 = 1;
+				anyo10++;
+			}
+			else {
+				dia10++;
+			}
+			System.out.println(dia10 + "/" + mes10 + "/" + anyo10);
+		}
+		else {
+			System.out.println("Error el dia introducido es superior al dia 31 o inferior a 0");
+		}
+		
+		
+		// 11. Pedir una hora de la forma hora, minutos y segundos, y mostrar la hora en el segundo siguiente.
+		System.out.println("Intruduzca horas, minutos y segundos (separado por espacios)");
+		int hora = sc.nextInt();
+		int min = sc.nextInt();
+		int seg = sc.nextInt();
+		
+		if(min > 0 && seg > 0 && hora > 0) {
+			if(seg >= 0 && seg == 59 && min >=0 && min < 59) {
+				seg = 0;
+				min++;
+			}
+			else if(seg >= 0 && seg == 59 && min >=0 && min == 59) {
+				seg = 0;
+				min = 0;
+				hora++;
+			}
+			else {
+				seg++;
+			}
+			System.out.println(hora + ":" + min + ":" + seg);
+		}
+		else {
+			System.out.println("El valor introducido es incorrecto");
+		}
+
+		
+		// 12. Pedir dos fechas y mostrar el número de días que hay de diferencia. Suponiendo todos los meses de 30 días.
+		System.out.println("Intruduzca la primera fecha en formato dia, mes y año (separado por espacios)");
+		int dia1 = sc.nextInt();
+		int mes1 = sc.nextInt();
+		int anyo1 = sc.nextInt();
+		System.out.println("Intruduzca la primera fecha en formato dia, mes y año (separado por espacios)");
+		int dia2 = sc.nextInt();
+		int mes2 = sc.nextInt();
+		int anyo2 = sc.nextInt();
+		int diaT, mesT, anyoT;
+		
+		if(((anyo1 > 0) && (anyo2 > 0)) && ((mes1 > 0 && mes1 <= 12) && (mes2 > 0 && mes2 <= 12)) && ((dia1 > 0 && dia1 <= 30) && (dia2 > 0 && dia2 <= 30))) {
+			if (anyo1 == anyo2) {
+				if(mes1 == mes2) {
+					if(dia1 > dia2) {
+						diaT  = dia1 - dia2;
+					}
+					else {
+						diaT  = dia2 - dia1;
+					}
+				}
+				else {
+					if(mes1 > mes2) {
+						mesT = mes1 - mes2;
+						if(dia1 > dia2) {
+							diaT  = dia1 - dia2;
+						}
+						else {
+							diaT  = dia2 - dia1;
+						}
+						diaT = diaT + (mesT * 30);
+					}
+					else {
+						mesT = mes2 - mes1;
+						if(dia1 > dia2) {
+							diaT  = dia1 - dia2;
+						}
+						else {
+							diaT  = dia2 - dia1;
+						}
+						diaT = diaT + (mesT * 30);
+					}
+				}
+			}
+			else {
+				if(anyo1 > anyo2) {
+					anyoT = anyo1 - anyo2;
+					if(mes1 > mes2) {
+						mesT = mes1 - mes2;
+						if(dia1 > dia2) {
+							diaT  = dia1 - dia2;
+						}
+						else {
+							diaT  = dia2 - dia1;
+						}
+						diaT = diaT + (mesT * 30);
+					}
+					else {
+						mesT = mes2 - mes1;
+						if(dia1 > dia2) {
+							diaT  = dia1 - dia2;
+						}
+						else {
+							diaT  = dia2 - dia1;
+						}
+						diaT = diaT + (mesT * 30);
+					}
+					diaT = diaT + ((anyoT * 12)*30);
+				}
+				else {
+					anyoT = anyo2 - anyo1;
+					if(mes1 > mes2) {
+						mesT = mes1 - mes2;
+						if(dia1 > dia2) {
+							diaT  = dia1 - dia2;
+						}
+						else {
+							diaT  = dia2 - dia1;
+						}
+						diaT = diaT + (anyoT * 12);
+					}
+					else {
+						mesT = mes2 - mes1;
+						if(dia1 > dia2) {
+							diaT  = dia1 - dia2;
+						}
+						else {
+							diaT  = dia2 - dia1;
+						}
+						diaT = diaT + (mesT * 30);
+					}
+					diaT = diaT + ((anyoT * 12)*30);
+				}
+			}
+			
+			System.out.println("Hay " + diaT + " de diferencia.");
+		}
+		else {
+			System.out.println("Alguno de los datos introducidos no entra en el rango anyo(1-infinito), mes(1-12) o dia(1-30)");
+		}
+	
+		
+		// 13. Construir un programa que calcule el índice de masa corporal de una persona (IMC = peso [kg] / altura2 [m]) e indique el estado en el que se encuentra esa persona en función del valor de IMC: 
+		//	   Valor de IMC Diagnóstico < 16 Criterio de ingreso en hospital 
+		//     de 16 a 17 infrapeso 
+		//	   de 17 a 18 bajo peso 
+		//     de 18 a 25 peso normal (saludable) 
+		//     de 25 a 30 sobrepeso (obesidad de grado I) 
+		//     de 30 a 35 sobrepeso crónico (obesidad de grado II) 
+		//     de 35 a 40 obesidad premórbida (obesidad de grado III) 
+		//     >40 obesidad mórbida (obesidad de grado IV) 
+		//     Nota 1: se recomienda el empleo de sentencias if–else anidadas. 
+		//     Nota 2: Los operandos (peso y altura) deben ser introducidos por teclado por el usuario.
+		
+		System.out.println("Introduzca el peso: ");
+		double peso = sc.nextDouble();
+		System.out.println("Introduzca la altura: ");
+		double altura = sc.nextDouble();
+		double imc = peso / (altura * altura);
+
+		if(imc < 16) {
+			System.out.println("Criterio de peso en hospital.");
+		}
+		else if(imc >= 16 && imc < 17) {
+			System.out.println("Infrapeso");
+		}
+		else if(imc >= 17 && imc < 18) {
+			System.out.println("Bajo peso");
+		}
+		else if(imc >= 18 && imc < 25) {
+			System.out.println("Peso nomal (Saludable)");
+		}
+		else if(imc >= 25 && imc < 30) {
+			System.out.println("Sobrepeso (obesidad de grado I)");
+		}
+		else if(imc >= 30 && imc < 35) {
+			System.out.println("Sobrepeso cronico (obesidad de grado II)");
+		}
+		else if(imc >= 35 && imc < 40) {
+			System.out.println("Obesidad premorbida (obesidad de grado III)");
+		}
+		else{
+			System.out.println("Obesidad morbida (obesidad de grado IV)");
+		}
 		*/
 		
-		// 10. 
 		sc.close();
 	}
 
