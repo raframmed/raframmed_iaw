@@ -426,6 +426,32 @@ public class EjerciciosIfT {
 		}
 		*/
 		
+		// 14. Construir un programa que calcule y muestre por pantalla las raíces de la ecuación de segundo grado de coeficientes reales.
+		// El programa debe diferenciar los diferentes casos que puedan surgir: la existencia de dos raíces reales distintas, 
+		// de dos raíces reales iguales y de dos raíces complejas. Nota: se recomienda el empleo de sentencias if–else anidadas.
+		
+		System.out.println("Introduzca el primer valor numérico que tiene incognita elevada al cuadrado en la funcion ");
+		int a = sc.nextInt();
+		System.out.println("Introduzca el primer valor numérico que tiene incognita en la funcion ");
+		int b = sc.nextInt();
+		System.out.println("Introduzca el primer valor independiente en la funcion ");
+		int c = sc.nextInt();
+		double raiz_p= 0.0, raiz_n = 0.0;
+		double raiz_cuadrada = (Math.pow(b, 2)-(4 * a * c));
+		if(raiz_cuadrada < 0) {
+			System.out.println("Las raices de las funciones introducidas son complejas");
+		}
+		else {
+			raiz_p = (0 - b + (Math.sqrt(Math.pow(b, 2)-(4 * a * c)))) / (2 * a) ;
+			raiz_n = (0 - b - (Math.sqrt(Math.pow(b, 2)-(4 * a * c)))) / (2 * a) ;
+			if(raiz_p == raiz_n) {
+				System.out.println("Las raices de la funcion introducida son iguales.");
+			}
+			else {
+				System.out.println("Las raices de la funcion introducida son distintas.");
+			}
+		}
+
 		sc.close();
 	}
 
