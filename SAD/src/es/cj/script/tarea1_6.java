@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class tarea1_6 {
 	
 	private static Scanner sc = new Scanner(System.in); 
+	
 	public static void main(String[] args) throws IOException {
 
 		int opc=0;
@@ -16,14 +17,14 @@ public class tarea1_6 {
             System.out.println("1.- Encriptar \n");
             System.out.println("2.- Desencriptar \n");
             System.out.println("3.- Salir \n");
-            System.out.println("Eliaja una opción:");
+            System.out.println("Elija una opción:");
             opc = sc.nextInt();
             
             switch(opc) {
             case 1:
             	System.out.println("Introduzca el texto a ecriptar seprados por '_':");
             	String palabra = sc.next();
-            	
+            	System.out.println("\n");
             	for (int i = 0; i <palabra.length (); i++) {
             		char c = palabra.charAt(i); 
             		switch(c) {
@@ -84,9 +85,7 @@ public class tarea1_6 {
             		default: c = '1';
         				break;
             		}
-            		System.out.print("Aqui tiene su texto encriptado: " + c);
-            		
-            				
+            		System.out.print(c);		
             	}
             	System.out.println("\n\n\n\n");
             	break;
@@ -157,14 +156,14 @@ public class tarea1_6 {
         				break;
             		}
             		
-            		System.out.print("Aqui tiene su texto desencriptado: " + c);
+            		System.out.print(c);
             		
             	}
-            	System.out.println("\n\n\n\n");
+            	System.out.println("cls");
             	break;	
             }
             
-         
+            System.out.flush();
         }while(opc!=3);
         System.out.println("Programa terminado");
 	}
