@@ -9,22 +9,14 @@ public class tarea1_6 {
 	
 	private static Scanner sc = new Scanner(System.in); 
 	public static void main(String[] args) throws IOException {
-			
-		/*boolean loop = true;
-		do {
-			System.out.println("Introduzca lo que desea hacer (encriptar o desencriptar)");
-			String opc = sc.next();
-		}
-		while(loop);
-		*/
+
 		int opc=0;
         do{
-            //menu="";
             System.out.println("****** Menú ******\n");
             System.out.println("1.- Encriptar \n");
             System.out.println("2.- Desencriptar \n");
             System.out.println("3.- Salir \n");
-            System.out.println("Elia una opción:");
+            System.out.println("Eliaja una opción:");
             opc = sc.nextInt();
             
             switch(opc) {
@@ -92,11 +84,11 @@ public class tarea1_6 {
             		default: c = '1';
         				break;
             		}
-            		System.out.print(c);
+            		System.out.print("Aqui tiene su texto encriptado: " + c);
             		
             				
             	}
-            	System.out.println("\n");
+            	System.out.println("\n\n\n\n");
             	break;
             case 2:
             	System.out.println("Introduzca el texto a desencriptar:");
@@ -164,11 +156,11 @@ public class tarea1_6 {
             		default: c = '1';
         				break;
             		}
-            		System.out.print(c);
             		
-            				
+            		System.out.print("Aqui tiene su texto desencriptado: " + c);
+            		
             	}
-            	System.out.println("\n");
+            	System.out.println("\n\n\n\n");
             	break;	
             }
             
