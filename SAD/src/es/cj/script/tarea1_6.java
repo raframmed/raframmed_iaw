@@ -159,7 +159,7 @@ public class tarea1_6 {
             		System.out.print(c);
             		
             	}
-            	System.out.println("cls");
+            	System.out.println("\n\n\n\n");
             	break;	
             }
             
