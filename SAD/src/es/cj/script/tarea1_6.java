@@ -92,7 +92,7 @@ public class tarea1_6 {
             case 2:
             	System.out.println("Introduzca el texto a desencriptar:");
             	String palabra_des = sc.next();
-            	
+            	System.out.println("\n");
             	for (int i = 0; i <palabra_des.length (); i++) {
             		char c = palabra_des.charAt(i); 
             		switch(c) {
