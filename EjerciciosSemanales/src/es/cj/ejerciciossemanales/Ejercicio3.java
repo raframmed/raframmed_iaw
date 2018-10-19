@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Ejercicio3 {
 	private static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
+		
 		System.out.println("Introduzca un numero");
 		int num = sc.nextInt(), suma = 0;
 		
