@@ -9,7 +9,7 @@ public class Caja {
 
 	// Constructores
 	public Caja() {
-
+		
 	}
 
 	public Caja(double ancho, double alto, double largo) {
@@ -65,5 +65,4 @@ public class Caja {
 			return false;
 		}
 	}
-
 }
