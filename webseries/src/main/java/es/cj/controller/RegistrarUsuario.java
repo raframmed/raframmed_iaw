@@ -7,7 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import es.cj.bean.Conexion;
 import es.cj.bean.Usuario;
@@ -15,15 +14,15 @@ import es.cj.dao.UsuarioDAO;
 import es.cj.dao.UsuarioDAOImpl;
 
 /**
- * Servlet implementation class ValidarUsuario
+ * Servlet implementation class RegistrarUsuario
  */
-public class ValidarUsuario extends HttpServlet {
+public class RegistrarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ValidarUsuario() {
+	public RegistrarUsuario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -43,7 +42,8 @@ public class ValidarUsuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String usuario = request.getParameter("usuario");
+		String username = request.getParameter("username");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
 		// Captura de datos del web.xml
@@ -55,21 +55,27 @@ public class ValidarUsuario extends HttpServlet {
 
 		// Crear un objeto de tipo Conexion con los datos anteriores
 		Conexion con = new Conexion(usu, pass, driver, bd);
-
-		// voy a llamar al método comprobarUsuario que devuelve el usuario o null
+		
+		Usuario usuario = new Usuario(username, email, password);
 		UsuarioDAO uDAO = new UsuarioDAOImpl();
-		Usuario u = uDAO.comprobarUsuario(usuario, password, con);
-
-		if (u!=null) {
-			// Creo la sesión
-			HttpSession sesion = request.getSession();
-			
-			// Pongo al usuario en la sesión
-			sesion.setAttribute("usuarioWeb", u);
-			
-			response.sendRedirect("jsp/principalUsuario.jsp");
-		} else {
-			response.sendRedirect("index.jsp?mensaje=Usuario y/o Password Incorrecto");
+		
+		if(!uDAO.existeUsername(username, con)) {
+			if(!uDAO.existeEmail(email, con)) {
+				int filas = uDAO.insertar(usuario, con);
+				if(filas == 1) {
+					// Correcto
+					response.sendRedirect("jsp/registrar.jsp?mensaje=usuario registrado correctamente");
+				}
+				else {
+					response.sendRedirect("jsp/registrar.jsp?mensaje=error al registrar el usuario");
+				}
+			}
+			else {
+				response.sendRedirect("jsp/registrar.jsp?mensaje=email registrado en la BD");
+			}
+		}
+		else {
+			response.sendRedirect("jsp/registrar.jsp?mensaje=Login registrado en la BD");
 		}
 	}
 

@@ -3,58 +3,46 @@ package es.cj.bean;
 import java.io.Serializable;
 
 public class Usuario implements Serializable{
+	int idusuario;
+	String username;
+	String email;
+	String password;
 
-	private int idUsuario;
-	private String login;
-	private String password;
-	private String nombre;
-	private String email;
-	private int tipo;
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(int idUsuario, String login, String password, String nombre, String email, int tipo) {
+	public Usuario(int idusuario, String username, String email, String password) {
 		super();
-		this.idUsuario = idUsuario;
-		this.login = login;
-		this.password = password;
-		this.nombre = nombre;
+		this.idusuario = idusuario;
+		this.username = username;
 		this.email = email;
-		this.tipo = tipo;
-	}
+		this.password = password;
 
-	public int getIdUsuario() {
-		return idUsuario;
 	}
-
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
+	
+	public Usuario(String username, String email, String password) {
+		super();
+		this.username = username;
+		this.email = email;
 		this.password = password;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public int getIdusuario() {
+		return idusuario;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setIdusuario(int idusuario) {
+		this.idusuario = idusuario;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -65,18 +53,18 @@ public class Usuario implements Serializable{
 		this.email = email;
 	}
 
-	public int getTipo() {
-		return tipo;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", login=" + login + ", password=" + password + ", nombre=" + nombre
-				+ ", email=" + email + ", tipo=" + tipo + "]";
+		return "Usuario [idusuario=" + idusuario + ", username=" + username + ", email=" + email + ", password="
+				+ password + "]";
 	}
 	
 }
