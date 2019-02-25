@@ -5,7 +5,7 @@
 	String driver = sc.getInitParameter("driver");
 	String bd = sc.getInitParameter("database");
 	Conexion con = new Conexion(usu, pass, driver, bd);
-	String idLibro = request.getParameter("idlibro");
+	String idLibro = request.getParameter("idLibro");
 	LibroDAO lDAO = new LibroDAOImpl();
 	byte[] imagen = lDAO.obtenerPortada(con, Integer.parseInt(idLibro));
 	try {
