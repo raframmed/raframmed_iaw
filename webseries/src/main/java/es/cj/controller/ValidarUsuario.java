@@ -67,7 +67,7 @@ public class ValidarUsuario extends HttpServlet {
 			// Pongo al usuario en la sesión
 			sesion.setAttribute("usuarioWeb", u);
 			
-			response.sendRedirect("jsp/principalUsuario.jsp");
+			response.sendRedirect("jsp/indexUsuario.jsp");
 		} else {
 			response.sendRedirect("index.jsp?mensaje=Usuario y/o Password Incorrecto");
 		}

@@ -1,16 +1,24 @@
 <!doctype html>
 <html lang="es">
 <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="css/inicio.css" rel="stylesheet">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<!------ Include the above in your HEAD tag ---------->
+<style type="text/css"> 
+a:link 
+{ 
+text-decoration:none; 
+} 
+</style>
 </head>
 <body>
 	<div id="login">
 		<div id=titulo class="text-center text-white pt-3">
-			<h1 class="display-1">Serie Storage Online</h1>
+			<h1 class="display-1">
+				<a class="text-white" href="index.jsp">Serie Storage Online</a>
+			</h1>
 		</div>
 		<div class="container">
 			<div class="row justify-content-center">

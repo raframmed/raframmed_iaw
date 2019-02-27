@@ -3,7 +3,7 @@ package es.cj.bean;
 import java.io.Serializable;
 
 public class Usuario implements Serializable{
-	int idusuario;
+	int idUsuario;
 	String username;
 	String email;
 	String password;
@@ -13,9 +13,9 @@ public class Usuario implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(int idusuario, String username, String email, String password) {
+	public Usuario(int idUsuario, String username, String email, String password) {
 		super();
-		this.idusuario = idusuario;
+		this.idUsuario = idUsuario;
 		this.username = username;
 		this.email = email;
 		this.password = password;
@@ -29,12 +29,12 @@ public class Usuario implements Serializable{
 		this.password = password;
 	}
 
-	public int getIdusuario() {
-		return idusuario;
+	public int getidUsuario() {
+		return idUsuario;
 	}
 
-	public void setIdusuario(int idusuario) {
-		this.idusuario = idusuario;
+	public void setidUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getUsername() {
@@ -63,7 +63,7 @@ public class Usuario implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Usuario [idusuario=" + idusuario + ", username=" + username + ", email=" + email + ", password="
+		return "Usuario [idUsuario=" + idUsuario + ", username=" + username + ", email=" + email + ", password="
 				+ password + "]";
 	}
 	

@@ -1,0 +1,19 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url('../images/FondoUsuario.jpg');
+	background-size: 100% 100%;
+	background-color: transparent;
+	background-attachment: fixed;
+	height: 100vh;
+	width: 100vw;
+}
+#WebName{
+	font-size: 50%;
+	font-weight: bold;
+}
+#lista{
+	font-size: 20px;
+}
+.carousel-inner { text-align: center; }
+.carousel .item > img { display: inline-block; }

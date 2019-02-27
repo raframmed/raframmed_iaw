@@ -22,7 +22,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			sentencia.setString(3, passBD);
 			ResultSet resultado = sentencia.executeQuery();
 			if (resultado.next()) {
-				usu = new Usuario(resultado.getInt("idusuario"), resultado.getString("username"),
+				usu = new Usuario(resultado.getInt("idUsuario"), resultado.getString("username"),
 						resultado.getString("email"), resultado.getString("password"));
 			}
 
@@ -36,7 +36,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public boolean existeUsername(String username, Conexion c) {
 		boolean existe = false;
 
-		String sql = "select * from usuarios where login=?";
+		String sql = "select * from usuarios where username=?";
 		try {
 			PreparedStatement sentencia = c.getConector().prepareStatement(sql);
 			sentencia.setString(1, username);
@@ -69,6 +69,25 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 
 		return existe;
+	}
+
+	public int insertar(Usuario usuario, Conexion c) {
+		int filas = 0;
+
+		String sql = "INSERT INTO usuarios VALUES (null, ?, ?, AES_ENCRYPT(?, ?))";
+		try {
+			PreparedStatement sentencia = c.getConector().prepareStatement(sql);
+			sentencia.setString(1, usuario.getUsername());
+			sentencia.setString(2, usuario.getEmail());
+			sentencia.setString(3, usuario.getPassword());
+			sentencia.setString(4, passBD);
+
+			filas = sentencia.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return filas;
 	}
 
 }

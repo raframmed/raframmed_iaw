@@ -55,28 +55,23 @@ public class RegistrarUsuario extends HttpServlet {
 
 		// Crear un objeto de tipo Conexion con los datos anteriores
 		Conexion con = new Conexion(usu, pass, driver, bd);
-		
+
 		Usuario usuario = new Usuario(username, email, password);
 		UsuarioDAO uDAO = new UsuarioDAOImpl();
-		
-		if(!uDAO.existeUsername(username, con)) {
-			if(!uDAO.existeEmail(email, con)) {
+		if (!uDAO.existeUsername(username, con)) {
+			if (!uDAO.existeEmail(email, con)) {
 				int filas = uDAO.insertar(usuario, con);
-				if(filas == 1) {
+				if (filas == 1) {
 					// Correcto
-					response.sendRedirect("jsp/registrar.jsp?mensaje=usuario registrado correctamente");
+					response.sendRedirect("jsp/registrar.jsp?mensaje=Usuario registrado correctamente");
+				} else {
+					response.sendRedirect("jsp/registrar.jsp?mensaje=Error al registrar al usuario");
 				}
-				else {
-					response.sendRedirect("jsp/registrar.jsp?mensaje=error al registrar el usuario");
-				}
+			} else {
+				response.sendRedirect("jsp/registrar.jsp?mensaje=Email ya está registrado en la BD");
 			}
-			else {
-				response.sendRedirect("jsp/registrar.jsp?mensaje=email registrado en la BD");
-			}
-		}
-		else {
-			response.sendRedirect("jsp/registrar.jsp?mensaje=Login registrado en la BD");
+		} else {
+			response.sendRedirect("jsp/registrar.jsp?mensaje=Nombre de usuario ya está registrado en la BD");
 		}
 	}
-
 }
